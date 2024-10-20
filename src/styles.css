@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  transition: background-color 1s ease, color 1s ease; /* Smooth transition */
+}
+
+:root {
+  --bg-color: white; /* Default background color */
+}
+
+.dark {
+  --bg-color: rgb(17 24 39); /* Background color in dark mode */
+}
+
+.animated-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  border-left: 2px solid #ff6b6b;
+  animation: animate 4s steps(12) infinite;
+}
+
+@keyframes animate {
+  40%,
+  60% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+.animated-element {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 1s ease;
+}
+
+.animated-element--visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+html:not(.dark) {
+  --arrow-color: rgb(0, 0, 0); /* Black for light mode */
+}
+
+html.dark {
+  --arrow-color: #ffffff; /* White for dark mode */
+}
+
+#downArrowIcon,
+#upArrowIcon {
+  fill: var(--arrow-color); /* Use the CSS variable for the fill color */
+}
+
+.hidden {
+  display: none; /* Hide the SVG when not needed */
+}
+
+#mobile-menu {
+    z-index: 9999999;
+}
