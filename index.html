@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" class="!scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-slate-100 font-sans dark:bg-gray-900">
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 right-0 h-[100vh] w-[100%] z-50 bg-slate-100/80 dark:bg-slate-800/60 backdrop-blur-lg shadow-lg flex items-center justify-center hidden"
+      style="backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px)"
+    >
+      <nav class="z-50 relative">
+        <ul
+          class="flex flex-col gap-8 list-none text-xl font-semibold p-4 text-gray-900 dark:text-gray-100"
+        >
+          <li><a href="#Home" class="no-underline">Home</a></li>
+          <li><a href="#About" class="no-underline">About</a></li>
+          <li><a href="#Skills" class="no-underline">Skills</a></li>
+          <li><a href="#Projects" class="no-underline">Projects</a></li>
+          <li><a href="#Contact-Me" class="no-underline">Contact</a></li>
+
+          <!-- Dark Mode Toggle Button -->
+          <li>
+            <button
+              id="darkModeToggle-Mobile"
+              class="bg-slate-300 shadow-md w-[50px] h-[50px] p-0 flex items-center justify-center rounded-full transition-all duration-300 ease-in-out dark:bg-slate-800 dark:shadow-none hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="bg-[rgb(53,53,53)]"
+                class="dark:hidden"
+              >
+                <path
+                  d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e8eaed"
+                class="hidden dark:block"
+              >
+                <path
+                  d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"
+                />
+              </svg>
+            </button>
+          </li>
+
+          <!-- Close Button -->
+          <li>
+            <button
+              id="close-menu"
+              class="bg-slate-300 shadow-md w-[50px] h-[50px] p-0 flex items-center justify-center rounded-full transition-all duration-300 ease-in-out dark:bg-slate-800 dark:shadow-none hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e8eaed"
+              >
+                <path
+                  d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Scroll Button -->
+    <button
+      id="scrollButton"
+      class="fixed bottom-5 right-5 z-50 bg-gray-300 shadow-lg w-[50px] h-[50px] flex items-center justify-center rounded-full transition-all duration-300 ease-in-out dark:bg-gray-800 dark:shadow-none hover:scale-110 hidden lg:flex"
+    >
+      <svg
+        id="downArrowIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="currentColor"
+      >
+        <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+      </svg>
+      <svg
+        id="upArrowIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="currentColor"
+        class="hidden"
+      >
+        <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z" />
+      </svg>
+    </button>
+
+    <!-- Darkmode Toggle -->
+    <button
+      id="darkModeToggle"
+      class="fixed bottom-5 left-5 z-50 bg-slate-300 shadow-md w-[50px] h-[50px] p-0 flex items-center justify-center rounded-full transition-all duration-300 ease-in-out dark:bg-slate-800 dark:shadow-none hover:scale-110 hidden lg:flex"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="bg-[rgb(53,53,53)]"
+        class="dark:hidden"
+      >
+        <path
+          d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"
+        />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#e8eaed"
+        class="hidden dark:block"
+      >
+        <path
+          d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"
+        />
+      </svg>
+    </button>
+
+    <!-- Home Section -->
+
+    <section id="Home" class="h-[100vh] w-[100%] relative z-0">
+      <header
+        class="flex flex-row justify-between items-center shadow-lg shadow-slate-100 w-full h-[10%] animated-element dark:bg-slate-800 dark:shadow-none bg-inherit px-8"
+      >
+        <div
+          class="w-[180px] text-2xl cursor-pointer font-bold dark:text-white"
+        >
+          Khalid El Hilali
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="navbar-toggle" class="lg:hidden rounded">
+          <img class="w-[50px]" src="assets/menu.png" alt="menu" />
+        </button>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden lg:block bg-slate-100 dark:bg-slate-800">
+          <ul
+            class="flex gap-[30px] list-none text-xl font-semibold dark:text-white"
+          >
+            <li><a href="#Home" class="no-underline">Home</a></li>
+            <li><a href="#About" class="no-underline">About</a></li>
+            <li><a href="#Skills" class="no-underline">Skills</a></li>
+            <li><a href="#Projects" class="no-underline">Projects</a></li>
+            <li><a href="#Contact-Me" class="no-underline">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div
+        class="w-full h-[90%] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-[8%] px-[38px]"
+      >
+        <!-- My Pic -->
+        <div
+          id="MyPic"
+          class="flex justify-center items-center bg-slate-100 dark:bg-gray-900 mb-8 md:mb-0 animated-element"
+        >
+          <div
+            class="w-[300px] h-[300px] rounded-full overflow-hidden shadow-2xl md:w-[400px] md:h-[400px] bg-slate-100"
+          >
+            <!-- Circular Image -->
+            <img
+              src="assets/82ca8bac-eb6f-4eb2-a1fd-39fae7e2f15d-Photoroom.png"
+              alt="MyPic"
+              class="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+
+        <!-- description Text -->
+        <div class="flex flex-col animated-element" id="description-text">
+          <h1
+            class="text-4xl lg:text-5xl font-extrabold text-[#2d2e32] dark:text-white overflow-hidden"
+          >
+            Hi, I'm
+            <span
+              class="text-4xl lg:text-5xl font-extrabold text-[#ff6b6b] relative animated-text"
+              id="anim-text"
+            >
+              Khalid !
+            </span>
+          </h1>
+          <p
+            class="mt-5 w-[250px] text-base md:text-lg text-[#8D9197] dark:text-[#9CA3AF]"
+          >
+            <!-- base on small, lg on md -->
+            I'm a full-stack web developer based in Sale, Morocco, creating
+            exceptional digital experiences. Enhance your online presence.
+            Discover my portfolio and let's talk about your project!
+          </p>
+
+          <!-- Home Buttons -->
+
+          <div class="flex gap-4 items-center mt-5">
+            <button
+              class="w-[150px] h-[40px] rounded-lg border-2 border-[rgb(53,53,53)] text-[rgb(53,53,53)] font-semibold dark:border-gray-300 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <a
+                target="_blank"
+                href="https://khalidelhilalicv.tiiny.site"
+                class="no-underline"
+              >
+                Download CV
+              </a>
+            </button>
+            <button
+              class="w-[150px] h-[40px] rounded-lg outline-none bg-[rgb(53,53,53)] text-slate-100 font-semibold dark:bg-teal-500 dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-teal-400"
+            >
+              <a href="#About" class="no-underline"> More About Me </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+
+    <section id="About" class="min-h-screen w-full px-8 py-12 px-[38px]">
+      <div class="w-full mb-8 animated-element">
+        <p
+          class="text-center text-[#555555] text-lg md:text-xl dark:text-[#AAAAAA]"
+        >
+          Get To Know More
+        </p>
+        <h1
+          class="text-center text-[2.5rem] md:text-[3rem] mt-2 font-bold dark:text-white"
+        >
+          About Me
+        </h1>
+      </div>
+
+      <div
+        class="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-[10%] mt-[50px]"
+      >
+        <!-- Image Section -->
+        <div class="flex-shrink-0 animated-element">
+          <img
+            src="assets/DarkModeIMG.png"
+            alt="About_Img"
+            class="w-[350px] md:w-[450px] lg:w-[500px] mx-auto"
+          />
+        </div>
+
+        <!-- Text Section -->
+        <div
+          class="w-full max-w-[400px] text-[#8D9197] flex flex-col gap-6 animated-element dark:text-gray-300"
+        >
+          <p class="text-base md:text-lg lg:text-xl leading-relaxed">
+            Hello! I’m a full-stack web developer with a passion for crafting
+            engaging web experiences. I hold a Specialized Technician degree in
+            Full-Stack Web Development and a Professional license degree in
+            Computer Systems Engineering. I enjoy building landing pages,
+            solving complex problems, and transforming ideas into functional,
+            user-friendly applications. Always eager to learn, I take on new
+            technologies and exciting projects to sharpen my skills and stay
+            current in this ever-evolving field.
+          </p>
+          <p class="text-base md:text-lg lg:text-xl leading-relaxed">
+            Outside of coding, I thrive on collective sports like football and
+            kickboxing, which not only keep me active but also help clear my
+            mind. I love going for long walks, as they provide a great mental
+            reset, allowing me to focus better and bring fresh ideas to my work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+
+    <section id="Skills" class="min-h-screen w-full px-8 py-12">
+      <div class="w-full mb-[5%] h-[15%] animated-element">
+        <p
+          class="text-center text-[#555555] text-lg md:text-xl dark:text-[#AAAAAA]"
+        >
+          Explore My
+        </p>
+        <h1
+          class="text-center text-[2.5rem] md:text-[3rem] mt-2 font-bold dark:text-white"
+        >
+          Experience
+        </h1>
+      </div>
+
+      <div
+        class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 h-[85%] flex-grow"
+      >
+        <div
+          class="w-full lg:w-1/3 p-4 rounded-xl border-black bg-[#f0f0f0] shadow-2xl transition-transform transform hover:translate-y-[-10px] animated-element dark:bg-slate-800 dark:border-gray-700"
+        >
+          <h1 class="text-2xl font-bold text-center mb-7 dark:text-slate-100">
+            Front-End
+          </h1>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex flex-col items-center">
+              <img src="assets/HTML.png" alt="HTML" class="w-16 h-16 mb-2" />
+              <p class="text-center dark:text-slate-300">HTML</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="assets/CSS.png" alt="CSS" class="w-16 h-16 mb-2" />
+              <p class="text-center dark:text-slate-300">CSS</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/JS.png"
+                alt="JavaScript"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">JavaScript</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/JQuery.png"
+                alt="jQuery"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">jQuery</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/Bootstrap.png"
+                alt="Bootstrap"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">Bootstrap</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/Tailwind.png"
+                alt="Tailwind"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">Tailwind</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="assets/React.png" alt="React" class="w-16 h-16 mb-2" />
+              <p class="text-center dark:text-slate-300">React</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-full lg:w-1/3 p-4 rounded-xl border-black bg-[#f0f0f0] shadow-2xl transition-transform transform hover:translate-y-[-10px] animated-element dark:bg-slate-800 dark:border-gray-700"
+        >
+          <h1 class="text-2xl font-bold text-center mb-7 dark:text-slate-100">
+            Back-End
+          </h1>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/NodeJs.png"
+                alt="NodeJs"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">NodeJs</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/Express JS.png"
+                alt="ExpressJs"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">ExpressJs</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/API.png"
+                alt="RESTful APIs"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">RESTful APIs</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="assets/PHP.png" alt="PHP" class="w-16 h-16 mb-2" />
+              <p class="text-center dark:text-slate-300">PHP</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/Laravel.png"
+                alt="Laravel"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">Laravel</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/MongoDB.png"
+                alt="MongoDB"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">MongoDB</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="assets/MySQL.png" alt="MySQL" class="w-16 h-16 mb-2" />
+              <p class="text-center dark:text-slate-300">MySQL</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-full lg:w-1/3 p-4 rounded-xl border-black bg-[#f0f0f0] shadow-2xl transition-transform transform hover:translate-y-[-10px] animated-element dark:bg-slate-800 dark:border-gray-700"
+        >
+          <h1 class="text-2xl font-bold text-center mb-7 dark:text-slate-100">
+            Tools
+          </h1>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex flex-col items-center">
+              <img src="assets/Git.png" alt="Git" class="w-16 h-16 mb-2" />
+              <p class="text-center dark:text-slate-300">Git</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/GitHub.png"
+                alt="GitHub"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">GitHub</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="assets/Jira.png" alt="Jira" class="w-16 h-16 mb-2" />
+              <p class="text-center dark:text-slate-300">Jira</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/VsCodepng.png"
+                alt="VsCode"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">VsCode</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/PostMan.png"
+                alt="PostMan"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">PostMan</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="assets/Docker.png"
+                alt="Docker"
+                class="w-16 h-16 mb-2"
+              />
+              <p class="text-center dark:text-slate-300">Docker</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="assets/Figma.png" alt="Figma" class="w-16 h-16 mb-2" />
+              <p class="text-center dark:text-slate-300">Figma</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects-->
+
+    <section id="Projects" class="min-h-screen w-full px-8 py-12 px-[38px]">
+      <div class="w-full mb-[5%] h-[15%] animated-element">
+        <p
+          class="text-center text-[#555555] text-lg md:text-xl dark:text-[#AAAAAA]"
+        >
+          Explore My Recent
+        </p>
+        <h1
+          class="text-center text-[2.5rem] md:text-[3rem] mt-2 font-bold dark:text-white"
+        >
+          Work
+        </h1>
+      </div>
+
+      <!-- Projects Grid -->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-8 h-[85%]"
+      >
+        <!-- Card 1 -->
+        <div
+          class="bg-white rounded-[30px] shadow-md overflow-hidden animated-element border-gray-300 dark:border-gray-700 dark:shadow-none"
+        >
+          <div class="relative group">
+            <img
+              src="assets/eCommerce-Website-Development-2.jpg"
+              alt="Ecommerce App"
+              class="w-full h-80 object-cover"
+            />
+            <div
+              class="absolute bottom-0 left-0 w-full h-0 bg-black bg-opacity-60 transition-all duration-300 group-hover:h-[18%]"
+            >
+              <div
+                class="absolute bottom-4 left-4 flex space-x-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >NodeJs</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >MongoDB</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >Tailwind</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="p-5 dark:bg-slate-800 dark:border-gray-700">
+            <h2
+              class="text-lg font-semibold mb-2 text-center dark:text-slate-300"
+            >
+              Multi-Vendor Ecommerce Web App
+            </h2>
+            <div class="w-full flex items-center justify-around mt-[30px]">
+              <button
+                class="w-[150px] h-[40px] rounded-lg border-2 border-gray-700 text-gray-700 font-semibold dark:border-gray-300 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                GitHub
+              </button>
+              <button
+                class="w-[150px] h-[40px] rounded-lg bg-gray-700 text-white font-semibold dark:bg-teal-500 dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-teal-400"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="bg-white rounded-[30px] shadow-md overflow-hidden animated-element border-gray-300 dark:border-gray-700 dark:shadow-none"
+        >
+          <div class="relative group">
+            <img
+              src="assets/chat-bot-dialogue-windows-set-dark-night-mode-talk-interface-with-consultant-chatbot-robot-online-personal-assistant-user-avatar-message-bubble-flat-design-customer-service-support_88138-720.jpg"
+              alt="Chat App"
+              class="w-full h-80 object-cover"
+            />
+            <div
+              class="absolute bottom-0 left-0 w-full h-0 bg-black bg-opacity-60 transition-all duration-300 group-hover:h-[18%]"
+            >
+              <div
+                class="absolute bottom-4 left-4 flex space-x-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >NodeJs</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >MongoDB</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >Socket.IO</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="p-5 dark:bg-slate-800 dark:border-gray-700">
+            <h2
+              class="text-lg font-semibold mb-2 text-center dark:text-slate-300"
+            >
+              Real Time Chat App
+            </h2>
+            <div class="w-full flex items-center justify-around mt-[30px]">
+              <button
+                class="w-[150px] h-[40px] rounded-lg border-2 border-gray-700 text-gray-700 font-semibold dark:border-gray-300 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                GitHub
+              </button>
+              <button
+                class="w-[150px] h-[40px] rounded-lg bg-gray-700 text-white font-semibold dark:bg-teal-500 dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-teal-400"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="bg-white rounded-[30px] shadow-md overflow-hidden animated-element border-gray-300 dark:border-gray-700 dark:shadow-none"
+        >
+          <div class="relative group">
+            <img
+              src="assets/blog.jpg"
+              alt="Blog App"
+              class="w-full h-80 object-cover"
+            />
+            <div
+              class="absolute bottom-0 left-0 w-full h-0 bg-black bg-opacity-60 transition-all duration-300 group-hover:h-[18%]"
+            >
+              <div
+                class="absolute bottom-4 left-4 flex space-x-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >Laravel</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >MySQL</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >Tailwind</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="p-5 dark:bg-slate-800 dark:border-gray-700">
+            <h2
+              class="text-lg font-semibold mb-2 text-center dark:text-slate-300"
+            >
+              Blog Web Application
+            </h2>
+            <div class="w-full flex items-center justify-around mt-[30px]">
+              <button
+                class="w-[150px] h-[40px] rounded-lg border-2 border-gray-700 text-gray-700 font-semibold dark:border-gray-300 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                GitHub
+              </button>
+              <button
+                class="w-[150px] h-[40px] rounded-lg bg-gray-700 text-white font-semibold dark:bg-teal-500 dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-teal-400"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div
+          class="bg-white rounded-[30px] shadow-md overflow-hidden animated-element border-gray-300 dark:border-gray-700 dark:shadow-none"
+        >
+          <div class="relative group">
+            <img
+              src="assets/crypto.jpg"
+              alt="Crypto App"
+              class="w-full h-80 object-cover"
+            />
+            <div
+              class="absolute bottom-0 left-0 w-full h-0 bg-black bg-opacity-60 transition-all duration-300 group-hover:h-[18%]"
+            >
+              <div
+                class="absolute bottom-4 left-4 flex space-x-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >TypeScript</span
+                >
+                <span
+                  class="bg-[#E0E0E0] text-gray-800 px-3 py-1 rounded-full text-sm"
+                  >Tailwind</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="p-5 dark:bg-slate-800 dark:border-gray-700">
+            <h2
+              class="text-lg font-semibold mb-2 text-center dark:text-slate-300"
+            >
+              Crypto Dashboard App
+            </h2>
+            <div class="w-full flex items-center justify-around mt-[30px]">
+              <button
+                class="w-[150px] h-[40px] rounded-lg border-2 border-gray-700 text-gray-700 font-semibold dark:border-gray-300 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                GitHub
+              </button>
+              <button
+                class="w-[150px] h-[40px] rounded-lg bg-gray-700 text-white font-semibold dark:bg-teal-500 dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-teal-400"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact-Me Secton -->
+
+    <section
+      id="Contact-Me"
+      class="min-h-screen w-full px-4 py-12 flex flex-col items-center px-[38px]"
+    >
+      <!-- Header Section -->
+      <div class="w-full mb-10 animated-element">
+        <p
+          class="text-center text-[#555555] text-lg md:text-xl dark:text-[#AAAAAA]"
+        >
+          Get in Touch
+        </p>
+        <h1
+          class="text-center text-[2rem] md:text-[3rem] mt-2 font-bold dark:text-white"
+        >
+          Contact Me
+        </h1>
+      </div>
+
+      <!-- Social Section -->
+      <div
+        class="relative flex lg:flex-row flex-col w-full max-w-[600px] h-auto lg:h-[80px] p-4 lg:p-[8px] rounded-2xl items-center border border-[#a3a3a3] overflow-hidden gap-4 animated-element dark:text-slate-300"
+      >
+        <!-- Email Section -->
+        <div
+          class="flex flex-row items-center w-full lg:w-[50%] h-full pl-[15px] group relative z-10 email-section"
+        >
+          <img src="assets/email.png" alt="Email" class="w-8 h-8 mr-[10px]" />
+          <p class="text-center text-lg cursor-pointer">
+            <a
+              href="mailto:Khalidhilali2004@gmail.com"
+              id="email-text"
+              class="no-underline"
+            >
+              <!-- Placeholder for dynamic email -->
+            </a>
+          </p>
+        </div>
+
+        <!-- LinkedIn Section -->
+        <div
+          class="flex flex-row items-center w-full lg:w-[25%] h-full pl-[15px] group relative z-10 linkedin-section"
+        >
+          <img
+            src="assets/LinkedIn.png"
+            alt="LinkedIn"
+            class="w-8 h-8 mr-[10px]"
+          />
+          <p class="text-center text-lg cursor-pointer">
+            <a
+              href="https://www.linkedin.com/in/khalidelhilali/"
+              target="_blank"
+              class="no-underline"
+            >
+              LinkedIn
+            </a>
+          </p>
+        </div>
+
+        <!-- GitHub Section -->
+        <div
+          class="flex flex-row items-center w-full lg:w-[25%] h-full pl-[10px] group relative z-10 github-section"
+        >
+          <img src="assets/GitHub.png" alt="GitHub" class="w-8 h-8 mr-[10px]" />
+          <p class="text-center text-lg cursor-pointer">
+            <a
+              href="https://github.com/NightmareJx"
+              target="_blank"
+              class="no-underline"
+              >GitHub</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div
+        class="flex flex-col gap-10 mt-10 items-center w-full max-w-[500px] bg-white dark:bg-slate-800 rounded-lg p-6 shadow-2xl dark:shadow-none animated-element"
+      >
+        <p
+          class="text-center text-[#555555] dark:text-slate-300 text-lg md:text-xl"
+        >
+          Have a question or a project idea? Feel free to reach out!
+        </p>
+
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="w-full flex flex-col gap-6"
+          id="contactForm"
+        >
+          <!-- Access Key Web3Forms API -->
+          <input
+            type="hidden"
+            name="access_key"
+            value="1f86e2cb-6f30-4f83-9761-611b5ee6221b"
+          />
+
+          <!-- Name Input -->
+          <div class="relative">
+            <label
+              for="name"
+              class="leading-7 text-sm text-gray-600 dark:text-gray-300"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full bg-gray-100 dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 focus:border-indigo-500 focus:bg-white dark:focus:bg-gray-800 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+
+          <!-- Email Input -->
+          <div class="relative">
+            <label
+              for="email"
+              class="leading-7 text-sm text-gray-600 dark:text-gray-300"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full bg-gray-100 dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 focus:border-indigo-500 focus:bg-white dark:focus:bg-gray-800 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+
+          <!-- Message Input -->
+          <div class="relative">
+            <label
+              for="message"
+              class="leading-7 text-sm text-gray-600 dark:text-gray-300"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              required
+              class="w-full bg-gray-100 dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 focus:border-indigo-500 focus:bg-white dark:focus:bg-gray-800 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 dark:text-gray-200 py-2 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="flex items-center">
+            <button
+              type="submit"
+              class="w-full lg:w-auto mx-auto text-white bg-gray-700 dark:bg-teal-500 border-0 py-2 px-8 focus:outline-none rounded text-lg hover:bg-gray-800 dark:hover:bg-teal-400"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer
+      class="h-[15vh] w-full mt-[50px] px-[38px] bg-white dark:bg-slate-800"
+    >
+      <hr class="border-black dark:border-gray-600 rounded-xl h-1" />
+      <div
+        class="flex flex-col lg:flex-row items-center justify-around w-full h-full space-y-4 lg:space-y-0 lg:space-x-4"
+      >
+        <p
+          class="text-[#555555] dark:text-gray-300 text-md text-center lg:text-left"
+        >
+          <b>Copyright &copy; 2024</b> Khalid El Hilali.
+          <b>All Rights Reserved.</b>
+        </p>
+
+        <div class="flex items-center justify-center space-x-4">
+          <a
+            href="#"
+            class="bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center w-12 h-12 text-white transition-transform duration-300 transform hover:scale-110 hover:bg-gray-600 dark:hover:bg-gray-500"
+          >
+            <i class="fa-brands fa-facebook-f text-lg"></i>
+          </a>
+          <a
+            href="#"
+            class="bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center w-12 h-12 text-white transition-transform duration-300 transform hover:scale-110 hover:bg-gray-600 dark:hover:bg-gray-500"
+          >
+            <i class="fa-brands fa-instagram text-lg"></i>
+          </a>
+          <a
+            href="#"
+            class="bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center w-12 h-12 text-white transition-transform duration-300 transform hover:scale-110 hover:bg-gray-600 dark:hover:bg-gray-500"
+          >
+            <i class="fa-brands fa-twitter text-lg"></i>
+          </a>
+          <a
+            href="#"
+            class="bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center w-12 h-12 text-white transition-transform duration-300 transform hover:scale-110 hover:bg-gray-600 dark:hover:bg-gray-500"
+          >
+            <i class="fa-brands fa-linkedin-in text-lg"></i>
+          </a>
+          <a
+            href="#"
+            class="bg-gray-700 dark:bg-gray-600 rounded-full flex items-center justify-center w-12 h-12 text-white transition-transform duration-300 transform hover:scale-110 hover:bg-gray-600 dark:hover:bg-gray-500"
+          >
+            <i class="fa-brands fa-github text-lg"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
