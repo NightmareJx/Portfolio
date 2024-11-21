@@ -6,10 +6,8 @@ Welcome to my personal web development portfolio! This site showcases my skills,
 You can view my portfolio live at [My porfolio website](https://nightmarejx.github.io/Portfolio/) 🌐
 
 ## Technologies Used
-- **Frontend:** HTML, CSS, Tailwind CSS, JavaScript, React 💻
-- **Backend:** (If applicable) Node.js, Express.js ⚙️
-- **Real-time Communication:** Socket.io (if your portfolio includes chat or notifications) 💬
-- **Database:** MongoDB, MySQL (if applicable) 🗄️
+- **Frontend:** HTML, CSS, Tailwind CSS, JavaScript 💻
+
 
 ## Project Setup
 
