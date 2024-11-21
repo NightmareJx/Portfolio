@@ -13,7 +13,6 @@ You can view my portfolio live at [My porfolio website](https://nightmarejx.gith
 
 1. Clone the repository to your local machine. 🖥️
 2. **To run the project:**
-    - Navigate to the `public` folder. 📂
     - Open `index.html` in your browser to start the portfolio. 🌍
 
 ## Features
