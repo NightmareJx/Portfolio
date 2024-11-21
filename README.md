@@ -30,5 +30,5 @@ You can view my portfolio live at [My porfolio website](https://nightmarejx.gith
 - Add new projects showcasing additional skills and technologies. 🔧
 
 ## Contact Me
-- **Email:** your.email@example.com 📧
+- **Email:** khalidhilali2004@gmail.com 📧
 - **LinkedIn:** [My LinkedIn Profile](www.linkedin.com/in/khalidelhilali) 🔗
